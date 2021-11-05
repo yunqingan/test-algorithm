@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+<!--配置阿里云镜像 让其他项目可以使用阿里云仓库-->
+<mirrors>
+   <mirror>
+        <id>Nexus aliyun</id>
+        <name>Nexus aliyun</name>
+        <!--如果这里使用*的话 会让pom私服配置不生效-->
+        <mirrorOf>central</mirrorOf>
+        <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+    </mirror>
+    <!-- 官方镜像 -->
+    <mirror>
+   <id>google-maven-central</id>
+   <name>Google Maven Central</name>
+   <url>https://maven-central.storage.googleapis.com/repos/central/data/</url>
+   <mirrorOf>central</mirrorOf>
+  </mirror> 
+
+    <mirror>
+   <id>ynby-cnmedicine-public</id>
+      <name>172.16.10.65 cd Repository</name>
+      <url>http://172.16.10.65:9081/repository/maven-public/</url>
+   <mirrorOf>central</mirrorOf>
+  </mirror> 
+</mirrors>
+
+<!-- 讯飞学习机第一仓库 -->
+<!-- 讯飞输入法第一仓库 -->
+
+<!--配置nexus私服账号 让maven项目可以depoy发布到私服上 进行多人协作-->
+<servers>
+    <server>
+        <id>maven-releases</id>
+        <username>admin</username>
+        <password>admin123</password>
+    </server>
+    <server>
+        <id>maven-snapshots</id>
+        <username>admin</username>
+        <password>admin123</password>
+    </server>
+</servers>
+
+<!--本地仓库配置-->
+  <localRepository>E:\Maven_Repository</localRepository>
+</settings>
